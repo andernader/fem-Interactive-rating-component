@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+:root {
+    --color-orange: hsl(25, 97%, 53%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-light-grey: hsl(217, 12%, 63%);
+    --color-medium-grey: hsl(216, 12%, 54%);
+    --color-dark-blue: hsl(213, 19%, 18%);
+    --color-very-dark-blue: hsl(216, 12%, 8%);
+    --needed-color: hsl(217 12% 63% / .2);
+    --main-font: 'Overpass', sans-serif;
+    --main-font-size: 15px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-very-dark-blue);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--main-font);
+    color: var(--color-light-grey);
+    font-size: var(--main-font-size)
+}
+
+.container {
+    width: 400px;
+    aspect-ratio: 1/1;
+    background-color: var(--color-dark-blue);
+    border-radius: 25px;
+   
+    position: relative;
+}
+
+/*main container*/
+.main-container {
+    position: absolute;
+    width: 400px;
+    aspect-ratio: 1/1;
+    background-color: var(--color-dark-blue);
+    border-radius: 25px;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.main-container .img-container{
+    background-color: var(--needed-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container img {
+    max-width: 25px;
+}
+
+.main-container h2 {
+    color: var(--color-white);
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: .5em;
+}
+
+.main-container form {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: space-between;
+}
+
+.main-container form input {
+    display: none;
+}
+
+.main-container form label {
+    width: 50px;
+    aspect-ratio: 1/1;
+    background-color: var(--needed-color);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 1em 0;
+    transition-duration: .25s;
+
+    user-select: none;
+}
+
+.main-container form label:hover {
+    background-color: var(--color-light-grey);
+    color: var(--color-white);
+}
+
+.main-container form input:checked + label{
+    background-color: var(--color-orange);
+    color: var(--color-white);
+}
+
+/* .main-container ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    list-style: none;
+
+    margin: 1em 0;
+}
+
+.main-container ul li {
+    background-color: var(--needed-color);
+    border-radius: 50%;
+    width: 50px;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-items: center;
+} */
+
+.main-container button {
+    width: 100%;
+    background-color: var(--color-orange);
+    border: none;
+    padding: .8em;
+    color: var(--color-white);
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    border-radius: 2.5em;
+    cursor: pointer;
+    transition-duration: .25s;
+}
+
+.main-container button:active {
+    background-color: var(--color-white);
+    color: var(--color-orange);
+}
+/*main container - end*/
+
+/*result container*/
+.result-container {
+    position: absolute;
+    padding: 2em;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.result-container img {
+    order: -2;
+}
+
+.result-container .msg {
+    color: var(--color-orange);
+    background-color: var(--needed-color);
+    padding: .5em 1em;
+    border-radius: 1em;
+}
+
+.result-container .text {
+    margin: 0 0 1em 0;
+}
+.result-container .text h2 {
+    margin-bottom: .5em;
+    color: var(--color-white);
+    font-size: 2em;
+}
+
+.result-container .text p {
+    color: var(--color-light-grey);
+}
+
+.display-none{
+    display: none;
+}
+
+.display-yes{
+    display: flex;
+    animation: display-yess .5s ease-in
+}
+
+@keyframes display-yess {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
